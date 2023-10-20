@@ -20,8 +20,14 @@
             </li>
             <li class="nav-lists" id="search-bar">
                 <div id="search-bar-container">
-                    <input type="search"  id="search" placeholder="search meals">
-                    <a href="#"><img src="root/magnifying-glass-solid.svg"></a>
+                    <input type="search"  id="search-input" placeholder="search meals here.........." autocomplete="on">
+                    <button type="button" id="search-btn" onclick="Search()">
+                        <a href="#" id="search-items">
+                            <img src="root/magnifying-glass-solid.svg">
+                        </a>
+                    </button>
+                    
+                    
                     
                 </div>
                 
@@ -38,6 +44,17 @@
             </li>
         </ul>
     </nav>
+    <article id="home-banner">
+          <div class="grid-container">
+            <div class="grid-child"></div>
+            <div class="grid-child"></div>
+            <div class="grid-child"></div>
+            <div class="grid-child"></div>
+            <div class="grid-child"></div>
+            <div class="grid-child"></div>
+          </div>
+    </article>
+
 
     <script src="script.js"></script>
 </body>
