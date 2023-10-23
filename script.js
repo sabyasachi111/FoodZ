@@ -1,60 +1,83 @@
-/*
-let searchinput=document.getElementById("search-input");
 
-searchinput.addEventListener("keypress",(event)=>{
-    if(event){
-        
-        console.log(input);
-    }
+fetch(`https://api.openbrewerydb.org/v1/breweries`)
+    .then(function(responce){
+        return responce.json();
+    })
+    .then(function(data){
+        Show(data);
+    })
+    //when Page loads Show function will map all the data from API to Page.
+    function Show(Data){
+        console.log(Data);
+        let CradData='';
+        let card=document.getElementById('card-list');
+        Data.map((value)=>{
+            CradData+=` <div class="card-body">
+            <div class="card-content">
+            <p class="text"><strong>Name:${value.name}</strong></p>
+                                <p class="text" >Address:${value.address_1}</p>
+                                <p class="text">Brewery Type:${value.brewery_type}</p>
+                            </div>
+                            <div class="btn">
+                            <a href="meals.html"><button id="view-details-btn" >View Details</button></a>
+                            
+                            <button id="favorite-btn" onclick="addFavorite()">Add to Favorite</button>
+                            
+                            </div>
+            
+            </div>`;
     
-});
+        });
+        console.log(CradData);
+        card.innerHTML=CradData
+    
+    }
 
-//url='www.themealdb.com/api/json/v1/1/search.php?s='+input;*/
 
 
+//when Serach by key Word and clicked on Search icon.
 function Search(){
     let input=document.getElementById('search-input').value;
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
-        .then(function (res) {
-            return res.json(); // Parse the response as JSON
-        })
-        .then(function (data) {
-            console.log(data); // Do something with the JSON data
-            //show(data);
-            console.log(data[2]);
-            
-        })
-        .catch(function (error) {
-            console.error('Error:', error);
-        });
+    console.log(input);
+    fetch(`https://api.openbrewerydb.org/v1/breweries?by_name=${input}&per_page=100`)
+    .then(function(responce){
+        return responce.json();
+    })
+    .then(function(data){
+        searchResultDelegation(data);
+    })
 }
 
-/*function show(objData){
-        let d=document.getElementById('result');
-        for(Meals in objData){
-            console.log(Meals.strMeal);
-        }
-       // d.innerHTML=`<hi>${element.strMeal}</hi>`;
+
+
+function searchResultDelegation(Data){
+    console.log(Data);
+    let CradData='';
+    let card=document.getElementById('card-list');
+    Data.map((value)=>{
+        CradData+=` <div class="card-body">
+        <div class="card-content">
+        <p class="text"><strong>Name:${value.name}</strong></p>
+                            <p class="text" >Address:${value.address_1}</p>
+                            <p class="text">Brewery Type:${value.brewery_type}</p>
+                        </div>
+                        <div class="btn">
+                        <a href="meals.html"><button id="view-details-btn" >View Details</button></a>
+                        
+                        <button id="favorite-btn" onclick="addFavorite()">Add to Favorite</button>
+                        
+                        </div>
         
-}*/
-
-
-/*fetch('www.themealdb.com/api/json/v1/1/search.php?s=chicken').then(function(res){
-    console.log(res);
-    return res.json();
-})*/
-
-/*function api() {
-    fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=chicken')
-        .then(function (res) {
-            return res.json(); // Parse the response as JSON
-        })
-        .then(function (data) {
-            console.log(data); // Do something with the JSON data
-        })
-        .catch(function (error) {
-            console.error('Error:', error);
-        });
+        </div>`;
+    });
+    card.innerHTML=CradData;    
 }
 
-api();*/
+let favo='';
+
+function addFavorite(){
+  console.log("listning");
+  localStorage.setItem('favorite','My Card');
+  
+}
+

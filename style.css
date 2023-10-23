@@ -58,7 +58,8 @@
     border-style: none;
     flex: 1;
     border-width: .2px .2px .2px;
-  
+    outline: none;
+    font-size: 20px;
     
 }
 #search-bar-container input:placeholder-shown{
@@ -102,5 +103,69 @@
     font-size: 18px;
     background-color: rgb(238, 83, 83);
     color: aliceblue;
+    font-family: cursive;
+}
+
+/*--------------------Article Section-------------------*/
+
+.Content-section{
+   
+   margin: 5vh 5vw;
+}
+#card-list{
+    display: flex;
+    flex-direction: row;
+    padding: 2vh 2vw;
+    margin-top: 3vh;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+   background-color: rgb(205, 200, 200);
+    border-radius: 5px;
+    justify-content: space-between;
+    height:30vh;
+    width:25vh;
+   
+    margin: 10px 3px;
+
+    
+}
+.text{
+    margin-left: 1.5vw;
+    font-family: cursive;
+    color: black;
+}
+
+.btn{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 3vh;
+    
+    
+}
+
+.btn button{
+    height: 3.5vh;
+    
+    border-style: none;
+   
+}
+
+#favorite-btn{
+    background-color: rgb(147, 36, 73);
+    color:white;
+    font-family: cursive;
+}
+
+#view-details-btn{
+    background-color: rgb(44, 125, 245);
+    color:white;
     font-family: cursive;
 }

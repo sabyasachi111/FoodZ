@@ -10,13 +10,13 @@
     <nav id="nav">
         <ul id="nav-list-container">
             <li class="nav-list-title" >
-                <a href="#" >FoodZoo</a>
+                <a href="index.html" >FoodZoo</a>
             </li>
             <li class="nav-lists">
                 <a href="meals.html">Meals</a>
             </li>
             <li class="nav-lists">
-                <a href="#">MyFavoriteMeals</a>
+                <a href="favorite.html">MyFavoriteMeals</a>
             </li>
             <li class="nav-lists" id="search-bar">
                 <div id="search-bar-container">
@@ -44,18 +44,29 @@
             </li>
         </ul>
     </nav>
-    <article id="home-banner">
-        <h1 id="result"></h1>
-          <div class="grid-container">
-            <div class="grid-child"></div>
-            <div class="grid-child"></div>
-            <div class="grid-child"></div>
-            <div class="grid-child"></div>
-            <div class="grid-child"></div>
-            <div class="grid-child"></div>
-          </div>
-    </article>
+  
+    <!--Article for showing all the meals-->
+    <article class="Content-section">
+        <div id="card-list">
+            <!--<div class="card-body">
+                <div class="card-content">
+                    <p class="text"><strong>Name:</strong></p>
+                    <p class="text">Address:</p>
+                    <p class="text">Brewery Type:</p>
+                </div>
+                
+                <div class="btn">
+                <a href="meals.html"><button id="view-details-btn" >View Details</button></a>
+                
+                <a href="favorite.html"><button id="favorite-btn" onclick="addFavorite()">Add to Favorite</button></a>
+                
+                </div>
+                
+            </div>-->
+        </div>
 
+    </article>
+    
 
     <script src="script.js"></script>
 </body>
