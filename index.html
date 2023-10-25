@@ -6,17 +6,11 @@
     <title>FoodZoo</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="ShowFavorite()">
     <nav id="nav">
         <ul id="nav-list-container">
             <li class="nav-list-title" >
                 <a href="index.html" >FoodZoo</a>
-            </li>
-            <li class="nav-lists">
-                <a href="meals.html">Meals</a>
-            </li>
-            <li class="nav-lists">
-                <a href="favorite.html">MyFavoriteMeals</a>
             </li>
             <li class="nav-lists" id="search-bar">
                 <div id="search-bar-container">
@@ -46,28 +40,104 @@
     </nav>
   
     <!--Article for showing all the meals-->
-    <article class="Content-section">
-        <div id="card-list">
-            <!--<div class="card-body">
-                <div class="card-content">
-                    <p class="text"><strong>Name:</strong></p>
-                    <p class="text">Address:</p>
-                    <p class="text">Brewery Type:</p>
-                </div>
+    <Main id="main">
+        <article class="Content-section">
+            <div id="card-list">
+                <!---
+                    <div class="card-body" id="${value.idMeal}">
+                        <div class="Meals-img">
+                        <img src="${value.strMealThumb}" alt="${value.strMeal}">
+                    </div>
+                        <div class="card-content">
+                            <p class="text" ><strong>Name:${value.strMeal}</strong></p>
+                            <p class="text" >Meal Type:${value.strArea}</p>
+                            <p class="textMealInfo" id>Meal ID:${value.idMeal}</p>
+                        </div>
+                     </div>
+                     <div class="btn">
+                          
+                            
+                     <button id="favorite-btn" onclick="addFavorite(${value.idMeal})">Add to Favorite</button>
                 
-                <div class="btn">
-                <a href="meals.html"><button id="view-details-btn" >View Details</button></a>
+                    </div>
+                -->
                 
-                <a href="favorite.html"><button id="favorite-btn" onclick="addFavorite()">Add to Favorite</button></a>
-                
-                </div>
-                
-            </div>-->
-        </div>
-
-    </article>
+            </div>
+           
+    
+        </article>
+        <aside id="aside">
+            <h2>My Favorite Meals</h2>
+           <div class="favorite-container" id="FavCard-list">
+            
+                 <!--<div class="favorite-meal-card">
+                    
+                    <div class="Fav-card-body" id="${value.idMeal}">
+                        <div class="fav-Meals-img">
+                        <img src="${value.strMealThumb}" alt="${value.strMeal}">
+                    </div>
+                        <div class="card-content">
+                            <p class="text" ><strong>Name:${value.strMeal}</strong></p>
+                            <p class="text" >Meal Type:${value.strArea}</p>
+                            <p class="textMealInfo" id>Meal ID:${value.idMeal}</p>
+                        </div>
+                     </div>
+                 </div>-->
+           </div>
+           
+        </aside>
+    </Main>
+    
+    <div class="Details-container">
+        <div id="card-list-details">
+            <!--<div class="details-card-body">
+                 <div class="View-Meals-img">
+                     <img src="https://www.themealdb.com/images/media/meals/1529446352.jpg">
+                 </div>
+                 <div class="Meals-Details">
+                      <h1>Name:Chicken Congee</h1>
+                      <h3>Meal Type:Chinese</h3>
+                     
+                 </div>
+                 <h2>Ingrediants</h2>
+                 <div class="Ingrediants">
+                    
+                    <div class="ingrediants-list">Chicken</div>
+                    <div class="ingrediants-list">Salt</div>
+                    <div class="ingrediants-list">Pepper</div>
+                    <div class="ingrediants-list">Ginger</div>
+                    <div class="ingrediants-list">Ginger Cordial</div>
+                    <div class="ingrediants-list">Spring Onions</div>
+                    <div class="ingrediants-list">Chicken</div>
+                    <div class="ingrediants-list">Salt</div>
+                    <div class="ingrediants-list">Pepper</div>
+                    <div class="ingrediants-list">Ginger</div>
+                    <div class="ingrediants-list">Ginger Cordial</div>
+                    <div class="ingrediants-list">Spring Onions</div>
+                    
+                 </div>
+                 <div class="instruction">
+                    <h2><strong>Instructions:</strong></h2>
+                    <p>
+                        STEP 1 - MARINATING THE CHICKEN\r\nIn a bowl, add chicken, salt, white pepper, ginger juice and then mix it together well.\r\nSet the chicken aside.\r\nSTEP 2 - RINSE THE WHITE RICE\r\nRinse the rice in a metal bowl or pot a couple times and then drain the water.\r\nSTEP 2 - BOILING THE WHITE RICE\r\nNext add 8 cups of water and then set the stove on high heat until it is boiling. Once rice porridge starts to boil, set the stove on low heat and then stir it once every 8-10 minutes for around 20-25 minutes.\r\nAfter 25 minutes, this is optional but you can add a little bit more water to make rice porridge to make it less thick or to your preference.\r\nNext add the marinated chicken to the rice porridge and leave the stove on low heat for another 10 minutes.\r\nAfter an additional 10 minutes add the green onions, sliced ginger, 1 pinch of salt, 1 pinch of white pepper and stir for 10 seconds.\r\nServe the rice porridge in a bowl\r\nOptional: add Coriander on top of the rice porridge."
+                    </p>
+                 </div>
+                 <div class="More-Details">
+                    
+                    <a href=""><img src="root/youtube.svg"></a>
+                    <h2>you can access the playList for this meal in You Tube</h2>
+                    
+                 </div>
+                 
+                 
+                 
+             </div>
+         </div>-->
+    </div>
+    
     
 
     <script src="script.js"></script>
+    
 </body>
 </html>

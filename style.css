@@ -1,14 +1,14 @@
 /*****************Navgiation bar****************/
 #nav{
     height: 5vh;
-  
+    padding-left: 3vw;
 
 }
 
 #nav-list-container{
     display: flex;
     flex-direction: row;
-  
+     justify-content: space-evenly;
     list-style: none;
 }
 
@@ -37,6 +37,7 @@
     color: black;
     font-family: cursive;
     font-weight: bold;
+    margin-left: -5vw;
 }
 
 /***************Search bar********************/
@@ -104,6 +105,15 @@
     background-color: rgb(238, 83, 83);
     color: aliceblue;
     font-family: cursive;
+    margin-left: -5vw;
+}
+/*--------------------------Main Section------------------------------*/
+#main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+
 }
 
 /*--------------------Article Section-------------------*/
@@ -111,6 +121,8 @@
 .Content-section{
    
    margin: 5vh 5vw;
+   width: 65%;
+   
 }
 #card-list{
     display: flex;
@@ -121,21 +133,53 @@
     justify-content: space-evenly;
     
 }
-
+.card{
+    display: flex;
+    flex-direction: column;
+   background-color: rgb(205, 200, 200);
+    border-radius: 5px;
+    justify-content: space-between;
+    height:30%;
+    width:20%;
+   
+    margin: 10px 3px;
+}
 .card-body{
     display: flex;
     flex-direction: column;
    background-color: rgb(205, 200, 200);
     border-radius: 5px;
     justify-content: space-between;
-    height:30vh;
-    width:25vh;
+    height:30%;
+    width:20%;
    
     margin: 10px 3px;
 
     
 }
+.card-body:hover img{
+   transform: scale(1.1);
+}
+.Meals-img{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.Meals-img img{
+    width: 60%;
+    height: 40%;
+    border-radius: 50%;
+    margin-top: 2vh;
+     
+    
+}
 .text{
+    margin-left: 1.5vw;
+    font-family: cursive;
+    color: black;
+}
+.textMealInfo{
     margin-left: 1.5vw;
     font-family: cursive;
     color: black;
@@ -158,14 +202,181 @@
    
 }
 
-#favorite-btn{
+.Favorite-btn-class{
     background-color: rgb(147, 36, 73);
     color:white;
     font-family: cursive;
 }
 
-#view-details-btn{
+
+.view-btn-class{
     background-color: rgb(44, 125, 245);
     color:white;
     font-family: cursive;
+}
+/*-------------------------Aside Section foe favorite List----------------------*/
+#aside{
+    width: 19%;
+    margin: 5vh;
+    
+}
+#aside h2{
+    font-family: cursive;
+    color:  rgb(147, 36, 73);
+}
+.favorite-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 5vh;
+    width: 70%;
+    margin-left: 3vw;
+
+}
+.favorite-meal-card{
+    display: flex;
+    flex-direction: column;
+   background-color: rgb(205, 200, 200);
+    border-radius: 5px;
+    justify-content: space-between;
+    margin: auto;
+   margin-top: 1vh ;
+   width: 100%;
+   
+}
+
+.fav-Meals-img{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.fav-Meals-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    margin-top: 2vh;
+}
+/*-------------------------Singel Meal View Section----------------------------*/
+.Details-container{
+    margin: 5vh 5vw;
+}
+
+.card-list-details{
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 2vw;
+    margin-top: 3vh;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+   
+    
+}
+.details-card-body{
+    display: flex;
+    
+    flex-direction: column;
+    background-color: rgb(205, 200, 200);
+    border-radius: 5px;
+    justify-content: space-between;
+    height:100%;
+    width:70%;
+   
+  
+    margin: auto;
+}
+
+.View-Meals-img{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    margin: auto;
+  
+    
+}
+.View-Meals-img img{
+    height: 80%;
+    width: 80%;
+    margin: 2vh;
+    border-radius: 20px;
+
+}
+
+.Meals-Details{
+    margin: auto;
+    font-family: cursive;
+    color: black;
+}
+
+.Ingrediants{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: rgb(147, 36, 73);
+    height: 30%;
+    border-radius: 10px;
+    padding: 1vh 1vw;
+}
+.ingrediants-list{
+    font-size: 20px;
+    padding: 1vh 1vw;
+    border-radius: 25px;
+    margin-top: 1vh;
+    margin: 1vh .5vw;
+    background-color: whitesmoke;
+    font-family: cursive;
+}
+
+.instruction{
+    background-color:  rgb(205, 200, 200);
+    margin: 2vh 2vw;
+}
+.instruction p{
+    font-family: cursive;
+    font-size: 20px;
+}
+.instruction h2{
+    text-align: center;
+}
+h2{
+    text-align: center;
+    font-family: cursive;
+    font-size: 30px;
+}
+.More-Details{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.More-Details h2{
+    font-family: cursive;
+}
+.More-Details a img{
+    height: 10vh;
+    width: 10vh;
+    
+}
+.Back-btn-container{
+  
+}
+.Back-btn-container a{
+    text-decoration: none;
+    margin-left: 2vw;
+}
+#back-btn{
+    background-color: rgb(73, 115, 222);
+    color: white;
+    font-family: cursive;
+    height: 5%;
+    width: 25%;
+    font-size: 25px;
+    padding: 2vh 2vw;
+    border-radius: 10px;
+    
+    margin-bottom: 2vh;
 }
