@@ -1,8 +1,12 @@
+
+
 /*****************Navgiation bar****************/
 #nav{
     height: 5vh;
     padding-left: 3vw;
-
+    
+   
+   
 }
 
 #nav-list-container{
@@ -10,6 +14,7 @@
     flex-direction: row;
      justify-content: space-evenly;
     list-style: none;
+    
 }
 
 .nav-lists{
@@ -25,11 +30,7 @@
     font-family: cursive;
 }
 
-.nav-list-title{
-    margin-left: 5vw;
-    margin-top: .5vh;
-    
-}
+
 
 .nav-list-title a{
     text-decoration: none;
@@ -41,41 +42,6 @@
 }
 
 /***************Search bar********************/
-
-
-#search-bar-container{
-    height: 4vh;
-    width: 35vw;
-    border: 1px solid gray;
-    display: flex;
-    flex-direction: row;
-   
-   
-}
-
-#search-input{
-    width: 86%;
-    height:100%;
-    border-style: none;
-    flex: 1;
-    border-width: .2px .2px .2px;
-    outline: none;
-    font-size: 20px;
-    
-}
-#search-bar-container input:placeholder-shown{
-    font-size: 20px;
-     font-family: cursive;
-}
-#search-bar-container button{
-    background-color: white;
-    border: none;
-}
-
-#search-bar-container button img{
-    height: 2.5vh;
-    
-}
 
 /********************nav-lists-bttn************/
 .nav-lists-bttn{
@@ -220,9 +186,10 @@
     margin: 5vh;
     
 }
-#aside h2{
+#aside h3{
     font-family: cursive;
     color:  rgb(147, 36, 73);
+    margin-left: 4vw;
 }
 .favorite-container{
     display: flex;

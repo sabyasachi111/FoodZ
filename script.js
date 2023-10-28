@@ -1,11 +1,57 @@
 
+/*----------------------------------------Search Auto Suggestion--------------------------*/
+let suggestions = [
+    "Chicken",
+    "Fish",
+    "Pizza",
+    "beef",
+    "Burger",
+    "Rice",
+    "Chicken Handi",
+    "Salad",
+    "Biriyani",
+    "pasta",
+    "fried Chicken",
+    "Mutton",
+    "Pork",
+    
 
+    
+];
+/*const resultBox=document.querySelector('.result-box');
+const inputBox=document.getElementById('input-box');
+inputBox.onkeyup=()=>{
+    let result=[];
+    let input=inputBox.value;
+    if(input.length){
+        result=suggestions.filter((suggestion)=>{
+               return suggestion.toLocaleLowerCase().includes(input.toLocaleLowerCase());
+        });
+        console.log(result);
+        display(result);
+    }
+}
 
+function display(result){
+    const content=result.map((list)=>{
+            return '<li onclick="selectInput(this)">'+list+'</li>';
+    });
+    console.log(content);
+    resultBox.innerHTML='<ul>'+ content.join('')+'</ul>';
+}
+
+function selectInput(list){
+    inputBox.value=list.innerHTML;
+    resultBox.innerHTML='';
+}*/
+/*---------------------------------------*********************---------------------------*/
 let card=document.getElementById('card-list');//getting the id of crad list Container to populate all the result.
 const favocradList=document.getElementById('FavCard-list');
+
 //when Serach by Meal Name and clicked on Search icon.
 function Search(){
-    let input=document.getElementById('search-input').value;
+    
+    let input=document.getElementById('text-input').value;
     //console.log(input);
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
     .then(function(responce){  //getting the responce and converting to JSON .
@@ -14,6 +60,7 @@ function Search(){
     .then(function(data){
         console.log(data);
         searchResultDelegation(data); // passing the JSON data to searchResultDelegation().
+        searchWrapper.classList.remove('active');
     })
 }
 
@@ -22,32 +69,34 @@ function Search(){
 function searchResultDelegation(Data){
    
     let CradData='';
-  
-    Data.meals.map((value)=>{  //mapping all objects in the meals array
-        CradData+=` 
-        <div class="card-body" id="${value.idMeal}">
-            <div class="Meals-img">
-               <img src="${value.strMealThumb}" alt="${value.strMeal}">
-            </div>
-            <div class="card-content">
-                <p class="text" ><strong>Name:${value.strMeal}</strong></p>
-                <p class="text" >Meal Type:${value.strArea}</p>
-                <p class="textMealInfo" id>Meal ID:${value.idMeal}</p>
-                </div>
-                <div class="btn">
-                     
-                <button id="viewBtn" data-id="${value.idMeal}" class="view-btn-class" onclick="ViewDetails()">View Details</button>    
-                <button id="favBtn" data-id="${value.idMeal}" class="Favorite-btn-class" onclick="Favorite()">Add to Favorite</button>
-           
-               </div>
-            </div>
-        
     
-     `;
-   
+        Data.meals.map((value)=>{  //mapping all objects in the meals array
+            CradData+=` 
+            <div class="card-body" id="${value.idMeal}">
+                <div class="Meals-img">
+                   <img src="${value.strMealThumb}" alt="${value.strMeal}">
+                </div>
+                <div class="card-content">
+                    <p class="text" ><strong>Name:${value.strMeal}</strong></p>
+                    <p class="text" >Meal Type:${value.strArea}</p>
+                    <p class="textMealInfo" id>Meal ID:${value.idMeal}</p>
+                    </div>
+                    <div class="btn">
+                         
+                    <button id="${value.idMeal}"  class="view-btn-class" >View Details</button>    
+                    <button id="${value.idMeal}"  class="Favorite-btn-class" >Add to Favorite</button>
+               
+                   </div>
+                </div>
             
-    });
-    card.innerHTML=CradData; 
+        
+         `;
+       
+                
+        });
+        card.innerHTML=CradData; 
+    
+    
    
   
 }
@@ -56,17 +105,18 @@ function searchResultDelegation(Data){
    
 
 
+card.addEventListener('click',function getId(e){
+   e.preventDefault();
+   console.log(e.target);
+   if(e.target.classList.contains('view-btn-class')){
+           ViewDetails(e.target.getAttribute('id'));
+   }else if(e.target.classList.contains('Favorite-btn-class')){
+           Favorite(e.target.getAttribute('id'));
+   }
+})
 
 
-
-function ViewDetails(){
-    const ViewBtn=document.getElementById('viewBtn');
-    const MealID=ViewBtn.getAttribute('data-id');
-    getSingleMealByID(MealID);
-}
-
-
-function getSingleMealByID(MealID){
+function ViewDetails(MealID){
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${MealID}`)
     .then((responce)=>{
         return responce.json()
@@ -128,7 +178,13 @@ function getSingleMealByID(MealID){
             });
             card.innerHTML=CradData; 
     });
+
+    
+   // getSingleMealByID(MealID);
 }
+   
+
+
 
 let MyFavoriteList=[
     {
@@ -144,39 +200,15 @@ let MyFavoriteList=[
     strArea:"Jamaican",
     strMealThumb: "https://www.themealdb.com/images/media/meals/1520084413.jpg"
     }
-    ,
-    {
-      idMeal:"52795",
-    strMeal:"Tzatziki Burgers",
-    strArea:"Greek",
-    strMealThumb:"https://www.themealdb.com/images/media/meals/k420tj1585565244.jpg"
     
-    }
-    ,
-    {
-    idMeal:"52806",
-    strMeal:"Tandoori chicken",
-    strArea:"Indian",
-    strMealThumb: "https://www.themealdb.com/images/media/meals/qptpvt1487339892.jpg"
-    }
     ];
 
-function Favorite(){
+function Favorite(MealID){
   
-console.log("listning");
-const FavBtn=document.getElementById('favBtn');
-const MealID=FavBtn.getAttribute('data-id');
-console.log(MealID);
-addFaborite(MealID);
- 
-  
-}
-
-function addFaborite(MealID){
-   if(MyFavoriteList.some(meals=>meals.idMeal===MealID)){
-    
-   }else{  //add Meals to favorite
-    console.log('False');
+    console.log('favo btn clicked')
+let MealsPresent=MyFavoriteListContains(MyFavoriteList,MealID)
+console.log(MealsPresent);
+if(MealsPresent===false){
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${MealID}`)
     .then((response)=>{
         return response.json()
@@ -189,15 +221,31 @@ function addFaborite(MealID){
                 strMealThumb:`${i.strMealThumb}`
                 });
                 
-                MyFavoriteList.map((value)=>{
-                    console.log(value.strMeal); 
-                  }) 
         });
-    })
-      
-      
+        addFaborite();
+       
+    });
+}else{
+    alert('Already in Favorite list. Do you want to remove from favorite?');
+    RemoveFromFavorite(MealID);
+}
+  
 
-   }
+
+}
+function MyFavoriteListContains(MyFavoriteList,MealID){
+    if(MyFavoriteList.some(e=>e.idMeal==MealID)){
+        return true;
+    }
+    return false;
+}
+
+function addFaborite(){
+    console.log('inside addFavo');
+    console.log(MyFavoriteList.length);
+   
+       
+   
    let favcard='';
     MyFavoriteList.map((Item)=>{
         favcard+=`<div class="favorite-meal-card">
@@ -214,7 +262,37 @@ function addFaborite(MealID){
          </div>
      </div>`;
     })
-    
+    console.log(favcard);
+    favocradList.innerHTML=favcard;
+    alert('Meal Added to favorite');
+    //ShowFavorite();
+}
+
+function RemoveFromFavorite(MealID){
+    const index=MyFavoriteList.findIndex(m=>m.idMeal==MealID);
+    console.log(index);
+    MyFavoriteList.splice(index,1);
+   
+    MyFavoriteList.map((value)=>{
+        console.log(value.strMeal);
+    })
+    let favcard='';
+    MyFavoriteList.map((Item)=>{
+        favcard+=`<div class="favorite-meal-card">
+                    
+        <div class="fav-card-body" id="${Item.idMeal}">
+            <div class="Meals-img">
+            <img src="${Item.strMealThumb}" alt="${Item.strMeal}">
+        </div>
+            <div class="card-content">
+                <p class="text" ><strong>Name:${Item.strMeal}</strong></p>
+                <p class="text" >Meal Type:${Item.strArea}</p>
+                <p class="textMealInfo" id>Meal ID:${Item.idMeal}</p>
+            </div>
+         </div>
+     </div>`;
+    })
+    console.log(favcard);
     favocradList.innerHTML=favcard;
 }
 
