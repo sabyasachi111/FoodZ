@@ -18,8 +18,8 @@ let suggestions = [
 
     
 ];
-/*const resultBox=document.querySelector('.result-box');
-const inputBox=document.getElementById('input-box');
+const resultBox=document.querySelector('.result-box');
+const inputBox=document.getElementById('input');
 inputBox.onkeyup=()=>{
     let result=[];
     let input=inputBox.value;
@@ -43,7 +43,10 @@ function display(result){
 function selectInput(list){
     inputBox.value=list.innerHTML;
     resultBox.innerHTML='';
-}*/
+}
+
+const search=document.getElementById('search');
+
 /*---------------------------------------*********************---------------------------*/
 let card=document.getElementById('card-list');//getting the id of crad list Container to populate all the result.
 const favocradList=document.getElementById('FavCard-list');
@@ -51,8 +54,8 @@ const favocradList=document.getElementById('FavCard-list');
 //when Serach by Meal Name and clicked on Search icon.
 function Search(){
     
-    let input=document.getElementById('text-input').value;
-    //console.log(input);
+    let input=document.getElementById('input').value;
+    console.log(input);
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
     .then(function(responce){  //getting the responce and converting to JSON .
         return responce.json();
